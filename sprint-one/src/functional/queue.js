@@ -14,7 +14,7 @@ var makeQueue = function(){
 
   instance.dequeue = function(){
     if(size) {
-      size--
+      size--;
       var result = storage[0];
       delete storage[0];
       for(var i=0;i<size;i++) {

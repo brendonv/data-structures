@@ -8,8 +8,8 @@ stackMethods.push = function(value){
 stackMethods.pop = function(){
   if(this.len) {
     this.len--;
-    var result = this.storage[len];
-    delete this.storage[len];
+    var result = this.storage[this.len];
+    delete this.storage[this.len];
     return result;
   }
 };
