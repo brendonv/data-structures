@@ -22,8 +22,8 @@ stackMethods.size = function(){
 var makeStack = function() {
 
   var instance = {
-    len: 0,
-    storage: {}
+    storage: {},
+    len: 0
   };
 
   return _.extend(instance, stackMethods);
