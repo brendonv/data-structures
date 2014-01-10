@@ -14,6 +14,14 @@ describe("tree", function() {
     assert.isTrue('value' in tree);
   });
 
+  it("should have a property named 'parent'", function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    expect(tree.children[0].children[0].parent.value).to.equal(5);
+  });
+
   it("should add children to the tree", function() {
     tree.addChild(5);
     expect(tree.children[0].value).to.equal(5);
@@ -44,4 +52,14 @@ describe("tree", function() {
     assert.isTrue(tree.contains(8));
   });
 
+  it("should have a method 'removeFromParent' that deletes parent", function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[0].addChild(8);
+    tree.children[1].addChild(9);
+    expect(tree.removeFromParent).to.be.a('function');
+    expect(tree.children[1].removeFromParent());
+    expect(tree.children[1]).to.equal(null);
+  });
 });
